@@ -1,2 +1,0 @@
-ABCDEFGHIJ
-Welcome To Java 
