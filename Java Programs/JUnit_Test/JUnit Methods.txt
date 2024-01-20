@@ -1,0 +1,97 @@
+/*
+author : Jaydatt Patel
+-----------------------------------------------------------------------------------------------
+* JUnit :
+There are many tools for unit testing, but the most popular one is JUnit. It is a free tool that is used for testing the Java programming language. To identify the test methods, which one is appropriate or perfect, JUnit provides assertions for the same. JUnit verifies the test data at the beginning and then gets started with the input of blocks of code, one at a time. 
+
+JUnit is an open-source project that consists of discrete elements. JUnit platform is one such element that serves as the base or the foundation level that enables the developers to launch different testing applications. 
+-----------------------------------------------------------------------------------------------
+* JUnit annotations : 
+The JUnit annotations are predefined texts provided by Java API, which helps JVM to recognize the type of method or class for testing. In other words, they are used to specify or declare the methods or classes with few properties like testing, disabling tests, ignoring tests, etc. We need to install the JUnit dependencies first to use JUnit annotations for testing. You can use Maven to install these dependencies. Check out this article for more details about installing Maven dependencies. JUnit provides  annotations org.junit.After,  org.junit.AfterClass,  org.junit.Before,  org.junit.BeforeClass,  org.junit.Ignore,  org.junit.Test.
+
+Some of the annotations of JUnit5 in comparison to JUnit 4 are:  
+• @Test: It tells the computer, and the user that the method used is a test method.
+• @TestFactory: denotes a method that's a test factory for dynamic tests
+• @Tag: declares tags for filtering tests.
+• @BeforeEach: This is used for the preparation of the test environment. It is executed before every test (previously @Before).
+• @AfterEach: This is used for the activities that take place after the test, like cache cleanup, restoring the settings to default values, and so on. All this is executed after the test is completed (previously @After).
+• @RepeatedTest(<Number): It works just like the test method but has one more feature. It repeats the test the number of times the developer mentioned. This annotation saves a lot of time for the developers.
+• @DisplayName("<Name>"): The name can be used to explain what the test is supposed to do in a proper way. Proper space can be used to form a good sentence.
+• @AfterAll: This refers to the method that is executed after all the tests defined are performed (previously @AfterClass). It can be used to clean up the cache or disconnecting for the database, etc. 
+• @BeforeAll: This refers to the method that is executed before all the tests defined are performed (previously @BeforeClass). It can be used to connecting to important databases, preparing for the test environment, etc.
+• @Nested: The test class can be nested. It is used when a certain activity is to be performed.
+• @ExtendWith:  registers custom extensions.
+• @Disable: disables a test class or method (previously @Ignore). 
+
+-----------------------------------------------------------------------------------------------
+* JUnit Assert Class: 
+It is an utility class in JUnit framework used for performing various types of assertions to verify expected results in unit testing. It provides various static methods to compare actual and expected values, throw exceptions based on the outcome of the comparison, and report test failures.     
+
+The org.junit.Assert class provides a set of static assertion methods that can be used in JUnit tests to verify expected results. Here are some of the commonly used assertion methods provided by the Assert class:
+
+                        import static org.junit.Assert.*; 
+
+org.junit.Assert.assertEquals, org.junit.Assert.assertNotEquals, org.junit.Assert.assertArrayEquals, org.junit.Assert.assertTrue, org.junit.Assert.assertFalse, org.junit.Assert.assertNull, org.junit.Assert.assertNotNull, org.junit.Assert.assertSame, org.junit.Assert.assertNotSame.
+
+Method	Description :
+1. assertEquals(expected, actual) :	Checks that two objects are equal
+2. assertNotEquals(expected, actual) : Checks that two objects are not equal
+3. assertArrayEquals(expected, actual) : Checks that two arrays are equal
+4. assertTrue(condition) : Checks that a condition is true
+5. assertFalse(condition) :	Checks that a condition is false
+6. assertNull(object) :	Checks that an object is null
+7. assertNotNull(object) : Checks that an object is not null
+8. assertSame(expected, actual) : Checks that two objects refer to the same object
+9. assertNotSame(expected, actual) : Checks that two objects do not refer to the same object
+
+-----------------------------------------------------------------------------------------------
+* JUnit Test Cases Class :
+In JUnit, the TestCase class in the org.junit.TestCase package allows us to run multiple tests. We can mark public void methods as test cases by attaching the @Test annotation to them. The TestCase class provides several methods that are useful for setting up and executing tests, as well as for releasing any resources used during testing.
+
+The org.junit.TestCase class provides several methods that are used to report the results of running JUnit tests. Here are some of the important methods:
+
+Method	Description :
+1. countTestCases(): Counts the number of test cases executed by the run(TestResult tr) method
+2. createResult(): Creates a TestResult object
+3. getName(): 	Returns the name of the TestCase as a string
+4. run(): Executes a test and returns a TestResult object.
+5. run(TestResult result): Executes a test using a TestResult object but doesn't return anything.
+6. setName(String name): Sets the name of the TestCase.
+7. setUp(): Used to write resource association code, such as creating a database connection.
+8. tearDown(): Used to write resource release code, such as releasing a database connection after performing a transaction operation.
+
+-----------------------------------------------------------------------------------------------
+* JUnit TestResult Class :
+
+In JUnit, the TestResult class is used to manage and report the results of a test run. It is part of the org.junit package and provides methods for tracking the number of tests that pass or fail, as well as for reporting on the time taken to run the tests.
+
+The org.junit.TestResult class provides several methods that are used to report the results of running JUnit tests. Here are some of the important methods:
+
+Method	Description : 
+1. runCount() : This method returns the total number of tests that were run.
+2. failureCount() : This method returns the number of failures that occurred while running the tests.
+3. errorCount() : This method returns the number of errors that occurred while running the tests.
+4. wasSuccessful() : This method returns true if all the tests completed successfully (i.e., no errors or failures occurred).
+5. addListener(TestListener listener) : This method registers a TestListener
+6. stop() : This method marks that the test run should stop.
+7. removeListener(TestListener listener) : This method unregisters a TestListener
+
+-----------------------------------------------------------------------------------------------
+* JUnit Test Suite Class :
+
+A JUnit test suite class is a Java class that allows you to group multiple JUnit test classes together into a single suite, which can be executed together as a single unit. The purpose of creating a test suite is to organize related tests together and to execute them in a specific order.
+
+The org.junit.TestSuite class provides several methods that are used to report the results of running JUnit tests. Here are some of the important methods:
+
+Method	Description :
+1. addTest(Test test) : This method adds a new test case or test suite to the current test suite.
+2. addTestSuite(Class<?> testClass) : This method adds all the test cases in a given test class to the current test suite.
+3. countTestCases() : This method returns the number of test cases in the current test suite.
+4. getName() : This method returns the name of the current test suite.
+5. run(TestResult result) : This method runs all the test cases in the current test suite and reports the results to the given TestResult object.
+6. testAt(int index) : This method returns the test case at the given index in the current test suite.
+7. testCount() : This method returns the number of test cases in the current test suite.
+8. tests() : This method returns an enumeration of all the test cases in the current test suite.
+9. toString() : This method returns a string representation of the current test suite.
+
+ */
