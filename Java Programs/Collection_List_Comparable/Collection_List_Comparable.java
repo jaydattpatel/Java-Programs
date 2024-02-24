@@ -39,7 +39,7 @@ class Student implements Comparable<Student>{
 
     }
     
-class Collection_Comparable {
+class Collection_List_Comparable {
     public static void main(String args[]){  
 
 
@@ -69,8 +69,8 @@ class Collection_Comparable {
             System.out.println("id: "+ s.id + ", name: "+ s.name);
         }
 
-        Collections.sort(list);
-
+        Collections.sort(list); //calling compareTo() function
+ 
         System.out.println("\nAfter sort: ");
         for(Student s : list){
             System.out.println("id: "+ s.id + ", name: "+ s.name);
